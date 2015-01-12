@@ -8,8 +8,10 @@ var express = require('express');
 //create a new express router instance
 var usersRouter = express.Router();
 
-//first, i'd test with a fixture
+//require Users mongoose database
+var Users = require('./../config/users-db');
 
+//first, i'd test with a fixture
 var users = [{
   "first_name": "Simeon",
   "last_name": "Flinxx",

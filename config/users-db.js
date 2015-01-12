@@ -42,7 +42,7 @@ var userSchema = new Schema({
   programming_languages: { type: Array, default: "I don't know any programming languages" },
   certificates: { type: Array, default: "I'm dry....no certificates!" },
   accomplishments: { type: Array, default: "...working on it!" },
-  social_networks: { [{ facebook: String, instagram: String, github: String  }], default: "I'd rather stay offline." },
+  social_networks: { [{ facebook: String, instagram: String, github: String }], default: "I'd rather stay offline." },
   joined_on: { type: Date, default: Date.now }
 });
 
@@ -50,3 +50,7 @@ var userSchema = new Schema({
 userSchema.plugin(myUnique);
 
 //convert userSchema into a Model to export and work with
+var Users = mongoose.model('users', userSchema);
+
+//export Users model so other files can use it
+module.exports = Users;
