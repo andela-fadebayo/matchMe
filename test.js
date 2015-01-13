@@ -10,7 +10,7 @@ describe('my GET request to the api root path', function() {
   it('on GET, returns a 200 status code', function (done) {
     
     supertest(app)
-      .get('/', '/api', '/api/users')
+      .get('/api/users')
       .expect(200)
       .end(function (error) {
         if(error) throw error;
@@ -18,17 +18,3 @@ describe('my GET request to the api root path', function() {
       });
   });
 });
-
-// describe('my redirect request to api-users', function() {
-
-//   it('on GET, redirects the user', function (done) {
-
-//     supertest(app)
-//       .get('/', '/api/users')
-//       .expect(200)
-//       .end(function (error) {
-//         if(error) throw error;
-//         done();
-//       });
-//   });
-// });

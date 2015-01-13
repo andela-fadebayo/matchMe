@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 var myUnique = require('mongoose-unique-validator');
 
 //create Users schema for user's data
-var Schema = mongoose.schema;
+var Schema = mongoose.Schema;
 
 //connect to mongodb local database
 var usersURI = 'mongodb://localhost/matchMe';
@@ -25,24 +25,25 @@ matchMedb.once('open', function (success) {
 
 //create a new user schema
 var userSchema = new Schema({
-  user_id: Schema.ObjectId,
-  first_name: {type: String, trim: true, required: true},
-  last_name: {type: String, trim: true, required: true},
-  username: {type: String, trim: true, lowercase: true, unique: true }, //username: first_name.last_name (to lower case)
-  email: {type: String, trim: true, lowercase: true, required: true, unique: true },
-  sex: {type: String, required: true},
-  age: {type: Number, min: 2, max: 3},
-  state: {type: String, trim: true},
-  country: {type: String, trim: true},
-  picture: String,
-  interest: { type: Array, default: "No Interests" },
+  first_name: { type: String, trim: true, required: true },
+  last_name: { type: String, trim: true, required: true },
+  username: { type: String, trim: true, lowercase: true, unique: true },
+  email: { type: String, trim: true, lowercase: true, required: true, unique: true },
+  sex: { type: String, required: true },
+  age: { type: Number, min: 1, max: 200 },
+  slogan: { type: String, trim: true },
+  company: { type: String, trim: true },
+  state: { type: String, trim: true },
+  country: { type: String, trim: true },
+  picture: { type: String, default: "../images/gravatar_male.jpg" },
+  interests: { type: Array, default: "No Interests" },
   likes: { type: Array, default: "No Likes" },
   dislikes: { type: Array, default: "No Dislikes" },
-  fav_foods: { type: Array, default: "No favourite foods" },
+  favourite_foods: { type: Array, default: "No favourite foods" },
   programming_languages: { type: Array, default: "I don't know any programming languages" },
   certificates: { type: Array, default: "I'm dry....no certificates!" },
   accomplishments: { type: Array, default: "...working on it!" },
-  social_networks: { [{ facebook: String, instagram: String, github: String }], default: "I'd rather stay offline." },
+  social_networks: { type: Array, default: "I'd rather stay offline." },
   joined_on: { type: Date, default: Date.now }
 });
 

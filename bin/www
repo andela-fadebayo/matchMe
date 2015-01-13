@@ -3,5 +3,5 @@
 var app = require('./../app');
 var port = 3000;
 app.listen(port, function () {
-  console.log("matchMe is listning on port: " + port);
+  console.log("matchMe is listening on port: " + port);
 });
