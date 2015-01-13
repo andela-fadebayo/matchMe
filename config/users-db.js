@@ -11,8 +11,9 @@ var Schema = mongoose.Schema;
 
 //connect to mongodb local database
 var usersURI = 'mongodb://localhost/matchMe';
-
-//place connection to mongoLab here
+if(process.env.NODE_ENV === 'production') {
+  usersURI = 'mongodb://fiyin:andela@ds031741.mongolab.com:31741/matchme';
+};
 
 mongoose.connect(usersURI);
 
@@ -51,7 +52,7 @@ var userSchema = new Schema({
 userSchema.plugin(myUnique);
 
 //convert userSchema into a Model to export and work with
-var Users = mongoose.model('users', userSchema);
+var Users = mongoose.model('users', userSchema, matchme);
 
 //export Users model so other files can use it
 module.exports = Users;
