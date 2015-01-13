@@ -52,7 +52,7 @@ var userSchema = new Schema({
 userSchema.plugin(myUnique);
 
 //convert userSchema into a Model to export and work with
-var Users = mongoose.model('users', userSchema, matchme);
+var Users = mongoose.model('users', userSchema);
 
 //export Users model so other files can use it
 module.exports = Users;
