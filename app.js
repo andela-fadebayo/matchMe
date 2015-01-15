@@ -13,6 +13,7 @@ var app = express();
 //require users-routes file for all routes
 var usersRoutes = require('./routes/users-routes');
 
+//Allow for cross domain and access to others
 var allowCrossDomain = function (request, response, next) {
   response.header('Access-Control-Allow-Origin', '*');
   response.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
@@ -28,7 +29,5 @@ app.use('/', usersRoutes);
 app.use('/api', usersRoutes);
 app.use('/api/users', usersRoutes);
 
-//Allow for cross domain and access to others
-
-
+//export app to be used by other files
 module.exports = app;
