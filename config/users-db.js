@@ -36,7 +36,7 @@ var userSchema = new Schema({
   company: { type: String, trim: true },
   state: { type: String, trim: true },
   country: { type: String, trim: true },
-  picture_male: { type: String, default: "http://s5.postimg.org/uzy8e2cj7/gravatar_male.jpg" },
+  picture_male: { type: String, default: "http://s5.postimg.org/mtk0rpqlv/gravatar_male.jpg" },
   picture_female: { type: String, default: "http://s5.postimg.org/8pade3f8z/gravatar_female.jpg" },
   interests: { type: Array, default: "No Interests" },
   likes: { type: Array, default: "No Likes" },
