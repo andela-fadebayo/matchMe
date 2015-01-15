@@ -50,7 +50,10 @@ usersRouter.route('/:name')
         return console.error(err);
       } 
       else if (findUser.length === 0) {
-        response.json("No user found with name '" + request.params.name + "'");
+        response.json({
+          message: "No user found with name '" + request.params.name + "'",
+          status: 404
+        });
       }
       else {
         response.json(findUser);
