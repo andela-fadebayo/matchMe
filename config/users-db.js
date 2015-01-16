@@ -28,7 +28,7 @@ matchMedb.once('open', function (success) {
 var userSchema = new Schema({
   first_name: { type: String, trim: true, required: true },
   last_name: { type: String, trim: true, required: true },
-  username: { type: String, trim: true, lowercase: true, unique: true },
+  username: { type: String, trim: true, lowercase: true, unique: true, required: true },
   email: { type: String, trim: true, lowercase: true, required: true, unique: true },
   sex: { type: String, required: true },
   age: { type: Number, min: 1, max: 200 },
